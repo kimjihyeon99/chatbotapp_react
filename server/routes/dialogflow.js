@@ -36,6 +36,7 @@ router.post('/textQuery', async (req, res) => {
     };
 
     // Send request and log result
+    // 여기서 저장된 data를 db에 넣어 관리 가능함
     const responses = await sessionClient.detectIntent(request);
     console.log('Detected intent');
     const result = responses[0].queryResult;
