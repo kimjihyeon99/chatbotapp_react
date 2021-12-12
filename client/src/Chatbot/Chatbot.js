@@ -1,13 +1,15 @@
 import Axios from 'axios';
 import React,{useEffect} from 'react';
-import { useDispatch, useSelector} from 'react-redux';
-import { saveMessage}  from  '../_actions/message_actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { saveMessage }  from  '../_actions/message_actions';
+import Message from './Sections/Message';
 
 function Chatbot() {
     const dispatch = useDispatch();
+    const messagesFromRedux = useSelector(state => state.message.messages);
 
     useEffect(()=>{
-        eventQuery('welcomeToMyWebsite')
+        eventQuery('welcomToMyWebsite')
     
     }, [])
 
@@ -21,7 +23,7 @@ function Chatbot() {
                 }
             }
         }
-        dispatch(saveMessage(conversation));
+        dispatch(saveMessage(conversation))
         // console.log("text i sent",conversation)
         const textQueryVariables={
             text
@@ -36,7 +38,7 @@ function Chatbot() {
                 who:'bot',
                 content:content
             }
-            dispatch(saveMessage(conversation));
+            dispatch(saveMessage(conversation))
 
         }catch(error){
             conversation={
@@ -47,7 +49,7 @@ function Chatbot() {
                     }
                 }
             }
-            dispatch(saveMessage(conversation));
+            dispatch(saveMessage(conversation))
 
         }
 
@@ -100,13 +102,30 @@ function Chatbot() {
         }
     }
 
+    const renderOnMessage=(message,i)=>{
+        console.log('message',message);
+
+        return <Message key={i} who={message.who} text={message.content.text.text} />
+    }
+
+    const renderMessage = (returnedMessages)=>{
+        if(returnedMessages){
+            return returnedMessages.map((message, i)=>{
+                return renderOnMessage(message,i);
+            })
+        }else{
+            return null;
+        }
+
+    }
+
     return (
         <div style={{
             height:700, width:700,
             border: '3px solid black', borderRadius: '7px'
         }}>
             <div style={{ height: 644, width: '100%', overflow:'auto'}}>
-
+                {renderMessage(messagesFromRedux)}
             </div>
 
             <input 
