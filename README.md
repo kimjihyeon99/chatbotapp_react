@@ -1,22 +1,23 @@
-chatbot-app is being sponsored by the following tool <br />
-Please help to support us by taking a look and signing up to a free trial
-<a href="https://tracking.gitads.io/?repo=chatbot-app"><img src="https://images.gitads.io/chatbot-app" alt="GitAds"/></a> 
+# [인프런] 리액트 챗봇 애플리케이션 만들기
 
+## 개발 환경
 
-Hello, My Friends  
+- 리액트
+- VSCODE
 
-Thanks for your interest in this repository ! 
+## 작동 기능
 
-To use this application, 
+### 개인 정보를 입력하면 저장
+- who are you? 또는 hello? 를 입력하면 해당 기능 사용가능 
+- 이름, 이메일, 주소 입력
+- 입력한 이름과 이메일을 언급하면서 대화 종료 
 
-1. make dev.js file in config folder 
-2. put mongoDB info into dev.js file 
-3. Type  " npm install " inside the root directory  ( Download Server Dependencies ) 
-4. Type " npm install " inside the client directory ( Download Front-end Dependencies )
+### 카드메시지로 링크 정보 제공 
+- card message, card 를 입력하면 해당 기능 사용가능
+- 유튜브 링크를 가진 3가지 카드 메시지 대답
+  
+## TODO
 
-If you have problem, feel free to ask me ^^ 
-
-You can view the tutorial through the link shown below.
-
-https://www.youtube.com/watch?v=h01cuxhteOA&t=4138s
-
+- [ ] dialog flow 대화 내용 수정 및 추가
+- [ ] ui 개선
+- [ ] 카드 메시지 다른 유형 추가
